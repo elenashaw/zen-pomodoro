@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  background: transparent !important;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent !important;
+  overflow: hidden; 
+}
+
+/* 隐藏滚动条但保留功能 */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* 音乐条动画：修复为按高度百分比跳动 */
+@keyframes music-bar {
+  0%, 100% { height: 30%; }
+  50% { height: 100%; }
+}
+.animate-music-bar-1 { animation: music-bar 0.7s infinite; }
+.animate-music-bar-2 { animation: music-bar 0.9s infinite; }
+
+/* 防止文本被意外选中，保持原生应用感 */
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 呼吸感动画：让阴影轻轻起伏 */
+@keyframes capsule-pulse {
+  0% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.15); }
+  100% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.05); }
+}
+
+.animate-capsule-pulse {
+  animation: capsule-pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.005); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
